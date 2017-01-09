@@ -1,0 +1,17 @@
+#!/bin/sh
+
+export OS_TENANT_ID='d51d8348628819b6ede35883a6'
+
+export OS_TENANT_NAME='GernotGBBSBoege cloud'
+
+export OS_USERNAME='gboege@gbbs-portal.de'
+
+export OS_PASSWORD='Av7X6}Yxn'
+
+export OS_AUTH_URL='http://cloud.lab.fiware.org:4730/v2.0/'
+
+export OS_AUTH_STRATEGY='keystone'
+
+export OS_REGION_NAME='Hannover'
+
+export Region1='Hannover'

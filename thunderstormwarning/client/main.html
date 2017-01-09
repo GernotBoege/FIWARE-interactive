@@ -1,0 +1,21 @@
+<head>
+  <title>Thunderstorm Warning</title>
+</head>
+
+<body>
+    {{#with SonsorOCBAPIData}} 
+    <div style="background-color: {{thunderstorm_color}};">
+        <div style="text-align: center;
+                    height: 360px;
+                    width: 360px;
+                    margin-left:calc(50vw - 180px);
+                    margin-top:calc(50vh - 280px);">
+            <h2 style="padding-top: 50px">Thunderstorm Warning</h2>
+            <b>{{id}}</b> <br>
+            Brightness: {{brightness}} <br>
+            Temperature: {{temperature_c}} <br>
+            Timestamp: {{timestamp_rcvd}} <br>
+        </div>
+    </div>
+     {{/with}}
+</body>
