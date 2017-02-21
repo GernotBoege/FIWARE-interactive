@@ -32,7 +32,7 @@ mysql:
         - MYSQL_ROOT_PASSWORD=mysql
 
 proton:
-    image: fiware/proactivetechnologyonline:latest
+    image: fiware/proactivetechnologyonline:v6.4.1
     hostname: proton
     container_name: proton
     expose:
