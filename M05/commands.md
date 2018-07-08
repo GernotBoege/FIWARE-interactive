@@ -1,8 +1,8 @@
 # Docker Commands for copy and paste
 
 # Check before starting
-Docker is running
-You have changed to the Repository Directory M05
+- Docker is running
+- You have changed to the Repository Directory M05
 
 
 # Start all containers in detached mode
