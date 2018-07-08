@@ -1,7 +1,7 @@
 version: "3"
 services:
    idm:
-     image: fiware/idm:7.0.1
+     image: fiware/idm:7.0.0
      container_name: idm
      hostname: idm
      networks:
