@@ -54,9 +54,9 @@ docker-compose restart idm
 ## Note YOUR! PEP Proxy OAuth2 Credentials
 - -> Click Link PEP Proxy
 - -> Button Register a new PEP Proxy
-- Application Id: 5806e105-6d67-4fae-8489-2e29f63d453b
-- PEP Proxy Username: pep_proxy_9e9d900c-c8eb-484b-9f9b-46a2398dd5d4
-- PEP Proxy Password: pep_proxy_f1afbd55-584d-493c-bdfc-a010fe3c0e66
+- Application Id: ee9f0db7-4fa6-4662-a208-cc4b5e096892
+- PEP Proxy Username: pep_proxy_e936e959-6966-4c5f-b578-229a129c2022
+- PEP Proxy Password: pep_proxy_6dc669bf-9ee9-4923-b668-a056a93f0736
 
 
 # Edit the PEP-Proxy config.js file
@@ -73,9 +73,9 @@ nano PEP-config.js
 - Change app.port to 1026 (the Orion Port)
 
 ## Insert YOUR! PEP Proxy Credentials
-- Insert pep.app_id: 5806e105-6d67-4fae-8489-2e29f63d453b
-- Insert pep.username: pep_proxy_9e9d900c-c8eb-484b-9f9b-46a2398dd5d4
-- Insert pep.password: pep_proxy_f1afbd55-584d-493c-bdfc-a010fe3c0e66
+- Insert pep.app_id: see above
+- Insert pep.username: see above
+- Insert pep.password: see above
 
 ## Insert YOUR! Magic key if wanted
 - Insert magic_key: 1234
@@ -88,26 +88,29 @@ docker-compose restart pep-proxy
 
 ## Start Postman
 ## Open API Call B0
-- Insert the just copied OAuth2 access_token in Headers tab
+- Got to Headers table
+- Deactivate X-Auth-Token Parameter
 - -> Button Send
-- -> Error: No Auth Token
+- -> Error: "Auth-token not found in request header"
 
 ## Open API Call A2 and retrieve OAuth2 Token from IDM on Authorization tab (simulated application Authorization)
 - Choose type Basic Auth (this is the simplest of the available OAuth2 variants)
-- Username: Insert OAuth Client ID: 5806e105-6d67-4fae-8489-2e29f63d453b
-- Password: Insert OAuth Client Secret: cb766ca4-dcc7-4647-a418-ba25b89f5abe
+- Username: Insert OAuth Client ID: see above
+- Password: Insert OAuth Client Secret: see above
 - -> Button Preview Request
 
 ## Check tabs Headers and Body
-- Headers: Now 2 Headers, Authorization has just be generated. Nothing to do
+- Headers: Now there are 2 Headers, Authorization has just be generated. Nothing to do
 - Body: All prefilled user data for the request itself
 - -> Button Send
 - -> Copy content of access_token
 
-## Open API Call B0
-- Insert the just copied OAuth2 access_token in Headers tab
+## Open API Call B0 and go to Headers tab
+- Activate X-Auth-Token Parameter
+- Insert the just copied OAuth2 access_token in Headers tab into X-Auth-Token
 - -> Button Send
 - -> Now we receive the proxied version data on port 1027 from Orion Context Broker on port 1026
+- -> SUCCESS with Authorization Level 1
 
 ## Stop all service and remove all containers from detached mode
 docker-compose down
