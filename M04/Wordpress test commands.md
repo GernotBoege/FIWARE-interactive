@@ -6,11 +6,11 @@
 # Check you have changed to the Repository Directory M04
 !!!
 
-## Start all containers in detached mode
+## Start all service in detached mode
 docker-compose up -d
 
 ## Check the root URL of YOUR page in a Browser
 - For my example it is: http://130.206.118.215:8000 (Change to your individual IP-Address)
 
-## Stop ALL containers from detached mode + clean up images and volumes
+## Stop all service and remove all containers from detached mode
 docker-compose down

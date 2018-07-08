@@ -6,7 +6,7 @@
 # Check you have changed to the Repository Directory M05
 !!!
 
-# Start all containers in detached mode
+## Start all service in detached mode
 docker-compose up -d
 
 
@@ -38,5 +38,5 @@ docker cp ./PEP-config.js idm:/opt/fiware-idm/config.js
 docker-compose restart pep-proxy
 
 
-# Stop all containers from detached mode
+## Stop all service and remove all containers from detached mode
 docker-compose down
