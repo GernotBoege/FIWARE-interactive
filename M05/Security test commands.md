@@ -15,6 +15,8 @@ docker-compose up -d
 docker cp idm:/opt/fiware-idm/config.js.template ./IDM-config.js
 
 ## Edit the file as shown with a local Texteditor, here it is nano
+## Now, we don't have to do any changes
+## Save the file after having made andy changes
 nano IDM-config.js
 
 ## Upload the changed file back into the container
@@ -25,6 +27,17 @@ docker-compose restart idm
 
 
 # Setup an application in the idm and takes notes:
+## Call the IDM in the Browser
+- For my example it is: http://130.206.118.215:3000 (Change to your individual IP-Address)
+
+## Admin-User for demo use
+- User: admin@test.com
+- Password: 1234
+
+## Entries for the demo app
+-
+
+##
 - OAuth Client-ID
 - OAuth Client Secret
 - PEP-Proxy Application ID
