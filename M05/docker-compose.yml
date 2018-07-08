@@ -1,0 +1,71 @@
+version: "3"
+services:
+   idm:
+     image: fiware/idm:7.0.1
+     container_name: idm
+     hostname: idm
+     networks:
+       demo_network:
+         ipv4_address: 172.18.1.5
+     depends_on:
+       - mysql
+     ports:
+       - "3000:3000"
+     environment:
+       - DATABASE_HOST=mysql
+   mysql:
+     image: mysql/mysql-server:5.7.21
+     container_name: mysql
+     hostname: mysql
+     networks:
+       demo_network:
+         ipv4_address: 172.18.1.6
+     expose:
+       - "3306"
+     environment:
+       - MYSQL_ROOT_PASSWORD=idm
+       - MYSQL_ROOT_HOST=172.18.1.5
+     volumes:
+       - vol-mysql:/var/lib/mysql
+   orion:
+     image: fiware/orion:1.14.0
+     container_name: orion
+     hostname: orion
+     networks:
+       demo_network:
+         ipv4_address: 172.18.1.7
+     depends_on:
+       - mongo
+     ports:
+       - "1026:1026"
+     command: -dbhost mongo -logLevel DEBUG
+   mongo:
+     image: mongo:3.6
+     container_name: mongo
+     hostname: mongo
+     networks:
+       demo_network:
+         ipv4_address: 172.18.1.8
+     expose:
+       - "27017"
+     volumes:
+      - vol-mongo:/data
+     command: --bind_ip_all --smallfiles
+   pep-proxy:
+     image: fiware/pep-proxy:7.0.1
+     container_name: pep-proxy
+     hostname: pep-proxy
+     networks:
+       demo_network:
+         ipv4_address: 172.18.1.9
+     ports:
+       - "1027:1027"
+networks:
+   demo_network:
+     driver: bridge
+     ipam:
+       config:
+         - subnet: 172.18.1.0/24
+volumes:
+   vol-mysql:
+   vol-mongo:
