@@ -24,6 +24,14 @@ docker cp ./IDM-config.js idm:/opt/fiware-idm/config.js
 docker-compose restart idm
 
 
+# Setup an application in the idm and takes notes:
+- OAuth Client-ID
+- OAuth Client Secret
+- PEP-Proxy Application ID
+- PEP-Proxy Username
+- PEP-Proxy Password
+
+
 # Edit the PEP-Proxy config.js file
 ## Download the template for an PEP-Proxy config file from the container
 docker cp pep-proxy:/opt/fiware-pep-proxy/config.js.template ./PEP-config.js
