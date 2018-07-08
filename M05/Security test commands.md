@@ -1,9 +1,10 @@
-# Docker Commands for copy and paste
+# Docker Commands to test the FIWARE Security Generic Enabler (commands for copy and paste)
 
-# Check before starting
-- Docker is running
-- You have changed to the Repository Directory M05
+# Check Docker ist running
+!!!
 
+# Check you have changed to the Repository Directory M05
+!!!
 
 # Start all containers in detached mode
 docker-compose up -d
