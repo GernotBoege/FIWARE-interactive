@@ -12,6 +12,7 @@
     3000 - IDM
     3306 - MySQL
     5050 - Cygnus
+    8000 - Wordpress Test
     8080 - CEP Proton
     8081 - Cygnus
     8082 - SpagoBI (changed from default)
