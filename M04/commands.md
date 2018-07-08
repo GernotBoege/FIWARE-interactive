@@ -8,12 +8,7 @@
 docker-compose up -d
 
 ## Check the root URL of YOUR page in a Browser
-- For my example it is: http://130.206.118.215:8000
-- Please replace with your individual IP-Address
+- For my example it is: http://130.206.118.215:8000 (Change to your individual IP-Address)
 
-## Stop all containers from detached mode + clean up images and volumes
+## Stop ALL containers from detached mode + clean up images and volumes
 docker-compose down
-docker rmi $(docker images -q)
-
-## Watch out this command means data loss of data in the volumes
-docker volume rm $(docker volume ls -q)
