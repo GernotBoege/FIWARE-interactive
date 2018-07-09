@@ -3,6 +3,8 @@ var tessel = require('tessel');
 
 var http = require('http');
 
+var f;
+
 var postData = JSON.stringify({
     "id": "SCS-001",
     "type": "SmartCitySensor",
