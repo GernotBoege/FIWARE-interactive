@@ -68,7 +68,6 @@ cygnus:
     links:
         - orion
         - mysql:iot-mysql
-        - mongodb
     expose:
         - "5050"
         - "8081"
@@ -95,7 +94,3 @@ cygnus:
         - CYGNUS_MYSQL_PORT=3306
         - CYGNUS_MYSQL_USER=root
         - CYGNUS_MYSQL_PASS=mysql
-
-        - CYGNUS_MONGO_HOSTS=mongodb:27017
-        - CYGNUS_MONGO_USER=mongo
-        - CYGNUS_MONGO_PASS=mongo
