@@ -28,7 +28,7 @@ docker-machine create -d openstack --openstack-flavor-id="2" --openstack-image-n
 eval "$(docker-machine env docker-host)"
 
 ## 04 - UNSET DOCKER COMMANDS TO RUN AGAINST A DOCKER-MACHINE HOST
-docker-machine env -u
+eval $(docker-machine env -u)
 
 ## 05 - SSH INTO A DOCKER-MACHINE HOST
 docker-machine ssh docker-host
