@@ -1,5 +1,5 @@
 mongodb:
-    image: mongo:2.6
+    image: mongo:3.6
     hostname: mongodb
     container_name: mongodb
     expose:
@@ -9,7 +9,7 @@ mongodb:
     command: --smallfiles
 
 orion:
-    image: fiware/orion:latest
+    image: fiware/orion:1.14.0
     hostname: orion
     container_name: orion
     links:
@@ -62,12 +62,13 @@ spagobidb:
         - MYSQL_ROOT_PASSWORD=spagobirootpassword
 
 cygnus:
-    image: fiware/cygnus-ngsi:latest
+    image: fiware/cygnus-ngsi:1.6.0
     hostname: cygnus
     container_name: cygnus
     links:
         - orion
         - mysql:iot-mysql
+        - mongodb
     expose:
         - "5050"
         - "8081"
@@ -77,7 +78,7 @@ cygnus:
     environment:
         - CYGNUS_USER=cygnus
         - CYGNUS_HOME=/opt/fiware-cygnus
-        - CYGNUS_VERSION=1.6.0_SNAPSHOT
+        - CYGNUS_VERSION=1.6.0
 
         - CYGNUS_CONF_PATH=/opt/apache-flume/conf
         - CYGNUS_CONF_FILE=/opt/apache-flume/conf/agent.conf
@@ -98,13 +99,3 @@ cygnus:
         - CYGNUS_MONGO_HOSTS=mongodb:27017
         - CYGNUS_MONGO_USER=mongo
         - CYGNUS_MONGO_PASS=mongo
-
-        - CYGNUS_CKAN_HOST=81.14.183.132
-        - CYGNUS_CKAN_PORT=80
-        - CYGNUS_CKAN_API_KEY=73ff0a43-80d8-4439-bdeb-43294432fa0c
-        - CYGNUS_CKAN_SSL=false
-
-        - CYGNUS_HDFS_HOST=storage.cosmos.lab.fiware.org
-        - CYGNUS_HDFS_PORT=14000
-        - CYGNUS_HDFS_USER=gernotgbbsboege
-        - CYGNUS_HDFS_TOKEN=aHWab78WuncyYscTmTCZqYZ5zkcfWD

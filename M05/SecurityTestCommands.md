@@ -26,7 +26,7 @@ docker cp ./IDM-config.js idm:/opt/fiware-idm/config.js
 docker-compose restart idm
 
 
-# Setup an application in the idm and takes notes:
+# Setup an application in the idm and take notes:
 ## Call the IDM in the Browser
 - For my example it is: http://130.206.118.215:3000 (Change to your individual IP-Address)
 
