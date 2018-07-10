@@ -3,8 +3,11 @@
 # Check Docker ist running
 !!!
 
+# MAKE DOCKER COMMANDS RUN AGAINST A DOCKER-MACHINE docker-host
+eval $(docker-machine env docker-host)
+
 # Check you have changed to the Repository Directory M05
-!!!
+cd M05
 
 ## Start all service in detached mode
 docker-compose up -d
@@ -14,10 +17,12 @@ docker-compose up -d
 ## Download the template for an IDM config file from the container
 docker cp idm:/opt/fiware-idm/config.js.template ./IDM-config.js
 
-## Edit the file as shown with a local Texteditor, here it is nano
-## Now, we don't have to do any changes
-## Save the file after having made andy changes
+## Edit the file with a local Texteditor as needed, here it is nano
 nano IDM-config.js
+
+## Now, we don't have to do any changes
+
+## Save the file after having made andy changes
 
 ## Upload the changed file back into the container
 docker cp ./IDM-config.js idm:/opt/fiware-idm/config.js
@@ -48,15 +53,15 @@ docker-compose restart idm
 
 ## Note OAuth2 Credentials
 - -> Click Link OAuth2 Credentials
-- OAuth Client ID: ee9f0db7-4fa6-4662-a208-cc4b5e096892
-- OAuth Client Secret: 0608df0c-f3cb-42cd-90cd-6d60854f39b8
+- OAuth Client ID: 584ede95-4f92-4b47-a8df-a70b7806ee81
+- OAuth Client Secret: 6d2b805c-6716-48b7-9b40-4860c20e75d8
 
-## Note YOUR! PEP Proxy OAuth2 Credentials
+## Note YOUR! PEP Proxy Credentials
 - -> Click Link PEP Proxy
 - -> Button Register a new PEP Proxy
-- Application Id: ee9f0db7-4fa6-4662-a208-cc4b5e096892
-- PEP Proxy Username: pep_proxy_e936e959-6966-4c5f-b578-229a129c2022
-- PEP Proxy Password: pep_proxy_6dc669bf-9ee9-4923-b668-a056a93f0736
+- Application Id: 584ede95-4f92-4b47-a8df-a70b7806ee81
+- PEP Proxy Username: pep_proxy_efc169c4-d7d4-4465-9269-e3d66bd14762
+- PEP Proxy Password: pep_proxy_73819f6f-ee2e-4f58-8d6d-6ecaf017eaec
 
 
 # Edit the PEP-Proxy config.js file
@@ -65,6 +70,8 @@ docker cp pep-proxy:/opt/fiware-pep-proxy/config.js.template ./PEP-config.js
 
 ## Edit the file as shown with a local Texteditor, here it is nano
 nano PEP-config.js
+
+## Make these changes
 - Change config.pep_port to 1027 (for proxying Orion Context Broker)
 - Change idm.host to '172.18.1.5' (internal docker IP for IDM, could also be an external Public IP)
 - Change idm.host to 3000 (the IDM Port for ssl=false)
@@ -87,7 +94,12 @@ docker cp ./PEP-config.js pep-proxy:/opt/fiware-pep-proxy/config.js
 docker-compose restart pep-proxy
 
 ## Start Postman
-## Open API Call B0
+
+## Check that your environment variables are filled in
+
+## Check that your environment is set
+
+## Open API Call B0 in Group A) Token requests
 - Got to Headers table
 - Deactivate X-Auth-Token Parameter
 - -> Button Send

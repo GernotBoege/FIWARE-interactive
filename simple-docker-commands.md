@@ -24,7 +24,7 @@ source openrc
 ## 02 - START CREATION OF DOCKER HOST
 docker-machine create -d openstack --openstack-flavor-id="3" --openstack-image-name="base_centos_7" --openstack-net-name="node-int-net-01" --openstack-floatingip-pool="public-ext-net-01" --openstack-domain-id="default" --openstack-ssh-user="centos" --openstack-sec-groups="docker-sg" docker-host
 
-## 03 - MAKE DOCKER COMMANDS RUN AGAINST A DOCKER-MACHINE HOST
+## 03 - MAKE DOCKER COMMANDS RUN AGAINST A DOCKER-MACHINE docker-host
 eval $(docker-machine env docker-host)
 
 ## 04 - UNSET DOCKER COMMANDS TO RUN AGAINST A DOCKER-MACHINE HOST
